@@ -1,0 +1,47 @@
+//Algo: Saisir infos nécessaires et les traiter pour mettre un client dans une atégorie.
+//Variables :   age; tpsPermis; nbAccidents --> réels entier positifs
+                rep; cas0; cas1; cas2; cas3; cas4 --> string
+//Début :   age <-- saisir("Saisir votre âge : ")
+            tpsPermis <-- saisir("Saisir depuis quand vous êtes titulaire du permis (en années): ")
+            fid <-- saisir("Depuis combien de temps êtes vous assuré hez nous (en années) : ")
+            nbAccidents <-- saisir("Combien d'accidents avez-vous causé : )
+            cas0 <-- faire écrire("Vous ne pouvez pas être assuré chez nous.")
+            cas1 <-- faire écrire ("Vous êtes elligible au tarif rouge")
+            cas2 <-- faire écrire ("Vous êtes elligible au tarif orange")
+            cas3 <-- faire écrire ("Vous êtes elligible au tarif vert")
+            cas4 <-- faire écrire ("Vous êtes elligible au tarif bleu")
+
+            Si age < 25 ET tpsPermis < 2 alors :
+                Si nbAccidents = 0 alors :    
+                    rep = cas1         
+                Sinon :
+                    rep = cas0
+            Si (age < 25 ET tpsPermis >= 2) OU (age >= 25 ET tpsPermis < 2) alors :
+                Si nbAccidents = 0 alors :
+                    rep = cas1
+                Sinon si nbAccidents < 2 alors :
+                    rep = cas2
+                Sinon :
+                    rep = cas0
+            Sinon :
+                Si nbAccidents = 0 alors :
+                    rep = cas3
+                Sinon si nbAccidents = 1 alors :
+                    rep = cas2
+                Sinon si nbAccidents < 3 alors :
+                    rep = cas1
+                Sinon :
+                    rep = cas0
+                
+            Si fid >= 5 alors :
+                Si rep = cas1 alors:
+                    rep = cas2
+                Sinon si rep = cas2 alors:
+                    rep = cas3
+                Sinon si rep = cas3 alors:
+                    rep = cas4
+
+            Afficher rep
+//Fin
+
+            
